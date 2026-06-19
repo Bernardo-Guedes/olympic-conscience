@@ -19,16 +19,37 @@
     border-radius: 50px;
     border: 0;
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: rgb(8, 28, 66);;
     font-size: clamp(11px, 2vw, 15px);
     font-weight: 550;
-    color: rgb(8, 28, 66);
+    color: white;
+    border-color: white;
     white-space: nowrap;
     flex-shrink: 0;
 }
 .btn-login:hover {
-    background-color: lightgray;
+    background-color: #650094;
+    border-color: #650094 !important;
 }
+
+.btn-logout {
+    padding: 6px 20px;
+    border-radius: 50px;
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(8, 28, 66);;
+    font-size: clamp(11px, 2vw, 15px);
+    font-weight: 550;
+    color: white;
+    border-color: white;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.btn-logout:hover {
+    background-color: #650094;
+    border-color: #650094 !important;
+}
+
 .logo {
     width: clamp(44px, 10vw, 120px);
     flex-shrink: 0;
@@ -221,7 +242,7 @@ h1, .fs-cabecalho {
 .item-formulario {
     margin-bottom: 7px;
 }
-/* Botão Buscar */
+
 input.item-formulario[type="submit"] {
     background-color: #dbeaea;
     border: 2px solid rgb(8, 22, 66);
@@ -362,7 +383,7 @@ input.item-formulario[type="submit"]:hover {
     padding-top: 180px;
 }
 
-#link-entrar:hover, #link-cadastrar:hover, .fa-eye:hover{
+#link-entrar:hover, #link-cadastrar:hover, .fa-eye:hover, .fa-eye-slash{
     cursor: pointer;
 }
 

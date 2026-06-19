@@ -544,7 +544,11 @@
       "email": "joao@email.com",
       "senha": "abc123",
       "admin": false,
-      "id__olimp_favoritas": [2, 5, 7]
+      "id__olimp_favoritas": [
+        2,
+        5,
+        7
+      ]
     },
     {
       "id": "2",
@@ -558,6 +562,15 @@
         3,
         4
       ]
+    },
+    {
+      "id": "xxanGM9Dgz8",
+      "username": "ailuj015",
+      "nome": "Julia Souza de Freitas",
+      "email": "julia@email.com",
+      "senha": "xyz123",
+      "admin": false,
+      "id__olimp_favoritas": []
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

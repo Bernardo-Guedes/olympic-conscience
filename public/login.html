@@ -17,7 +17,9 @@
                 <img class="logo" src="assets/img/logo.png" alt="logo">
             </a>
             <h1 id="titulo-header" class="flex-grow-1 text-center fs-cabecalho">Olympic Conscience</h1>
-            <img class="foto-perfil me-1 me-md-4" src="assets/img/foto_perfil.JPG" alt="foto-perfil">
+            <button class="btn-login rounded-2 border border-1"><i class="fa-solid fa-user"></i> Entrar</button>
+            <button class="btn-logout d-none rounded-2 border border-1"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</button>
+            <img class="foto-perfil d-none ms-3" src="" alt="foto-perfil">
         </div>
         <nav>
             <input type="checkbox" id="menuToggle" class="d-none">
@@ -35,14 +37,12 @@
                 class="lista-menu d-flex flex-wrap flex-md-nowrap list-unstyled mb-0 py-md-2 px-lg-5 justify-content-center justify-content-lg-between">
                 <li><a href="index.html">Página Inicial</a></li>
                 <li><a href="cadastro_noticia.html?edit=false">Nova Notícia</a></li>
-                <li><a href="calendar.html">Calendário</a></li>
-                <li><a href="">Experiências</a></li>
-                <li><a href="">Ranking</a></li>
+                <li><a href="">Notícias salvas  </a></li>
             </ul>
         </nav>
     </header>
     <main class="px-2 px-sm-3 px-lg-5">
-        <div id="register-form" class="p-3 pt-4 bg-light mt-2 mt-md-0 mx-0 mx-md-3 mx-lg-5 rounded-3">
+        <div id="register-form" class="d-none p-3 pt-4 bg-light mt-2 mt-md-0 mx-0 mx-md-3 mx-lg-5 rounded-3">
             <form id="form-cadastro-usuario" class="needs-validation" novalidate>
                 <div id="header-form-cadastro-usuario" class="d-flex">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px" height="40px" fill="#650094" class="mt-1">
@@ -78,7 +78,7 @@
                         <div class="ms-lg-auto me-2">
                             <div class="d-flex align-items-center">
                                 <input type="text" class="form-control" id="input-password" placeholder="Digite sua senha" required>
-                                <i class="fa-solid fa-eye ms-2" style="width: 10px; height: 10px; color: #650094;"></i>
+                                <i class="fa-solid fa-eye ms-2" id="icon-password" style="width: 10px; height: 10px; color: #650094;"></i>
                             </div>
                             <small style="color: rgb(128, 128, 128);">A senha deve conter pelo menos 6 caracteres.</small>
                         </div>
@@ -89,7 +89,7 @@
                         <div class="ms-lg-auto me-2">
                             <div class="d-flex align-items-center">
                                 <input type="text" class="form-control" id="input-confirm-password" placeholder="Confirme sua senha" required>
-                                <i class="fa-solid fa-eye ms-2" style="width: 10px; height: 10px; color: #650094;"></i>
+                                <i class="fa-solid fa-eye ms-2" id="icon-confirm-password" style="width: 10px; height: 10px; color: #650094;"></i>
                             </div>
                             <small style="color: rgb(128, 128, 128);">Digite novamente a senha para confirmação.</small>
                         </div>
@@ -127,7 +127,7 @@
                         <label for="input-login-password" class="form-label fw-semibold ms-1"><i class="fa-solid fa-lock" style="width: 30px; height: 30px; color: #650094;"></i>Senha <span class="text-danger">*</span></label>
                         <div class="d-flex align-items-center">
                             <input type="text" class="form-control" id="input-login-password" placeholder="Digite sua senha" required>
-                            <i class="fa-solid fa-eye ms-2" style="width: 10px; height: 10px; color: #650094;"></i>
+                            <i class="fa-solid fa-eye ms-2" id="icon-login-password" style="width: 10px; height: 10px; color: #650094;"></i>
                         </div>
                         <div class="invalid-feedback">Campo obrigatório.</div>
                     </div>
@@ -228,7 +228,8 @@
             </div>
         </div>
     </footer>
-    <script src=""></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>

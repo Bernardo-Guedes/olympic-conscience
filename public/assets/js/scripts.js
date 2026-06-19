@@ -121,6 +121,65 @@ function createCard(noticia, olimpiadas, slideIndex = 0){
 async function init(){
     const data = await fetchItems()
     renderCards(data.noticias, data.olimpiadas)
+
+    // Recupera o usuário logado do sessionStorage
+    const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : {};
+    const estaLogado = usuarioCorrente && usuarioCorrente.id;
+
+    // Ajusta seção de perfil da sidebar
+    if (estaLogado){
+        secao_perfil_usuario = document.querySelector(".perfil-usuario")
+        secao_perfil_usuario.innerHTML = ""
+        secao_perfil_usuario.innerHTML = `
+            <h2 class="fw-bold py-2"><i class="fa-solid fa-user ms-2 me-2", style="color: #650094;"></i>Meu perfil</h2>
+            <div class="d-flex align-items-center px-3 pt-2"> <img class="foto-perfil"
+                    src="" alt="">
+                <div class="ms-2">
+                    <h3 id="nome">Bernardo Guedes</h3>
+                    <h4>Nível: Iniciante</h4>
+                </div>
+            </div>
+            <div class="pontuacao px-3 pb-3">
+                <p id="meus-pontos">Meus Pontos</p>
+                <p id="num-pontos">1.250</p>
+                <p id="pontos-semana"><span>+90</span> esta semana</p>
+            </div>
+        `
+        // Foto da barra lateral (só existe no index)
+        const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(usuarioCorrente.nome)}&background=650094&color=fff&size=200&rounded=true`;
+        const fotoSidebar = document.querySelector('.perfil-usuario .foto-perfil');
+        if (fotoSidebar) fotoSidebar.src = avatarUrl;
+
+    } else {
+        secao_perfil_usuario = document.querySelector(".perfil-usuario")
+        secao_perfil_usuario.innerHTML = ""
+        secao_perfil_usuario.innerHTML = `
+            <h2 class="fw-bold mb-3"><i class="fa-solid fa-user ms-2 me-2", style="color: #650094;"></i>Bem-vindo!</h2>
+            <p class="mb-4 mx-4">
+                Entre ou crie uma conta para acessar todos os recursos do portal e fazer parte da comunidade olímpica.
+            </p>
+            <button id="btn-hp-login" class="d-block w-75 mx-auto py-2 rounded-2 text-light border-0 bg-personalize mb-2">
+                <i class="fa-solid fa-right-to-bracket me-2"></i>
+                Entrar
+            </button>
+            <button id="btn-hp-register" class="d-block w-75 mx-auto py-2 rounded-2 border-1 bg-transparent mb-4" style="border-color: #650094; color: #650094;">
+                <i class="fa-solid fa-user-plus me-2"></i>
+                Criar conta
+            </button>
+        `;
+    }
+
+    if(document.getElementById('btn-hp-login')){
+        document.getElementById('btn-hp-login').addEventListener('click', function () {
+            window.location = 'login.html?form=login';
+        });
+    } 
+    if(document.getElementById('btn-hp-register')){
+        document.getElementById('btn-hp-register').addEventListener('click', function () {
+            window.location = 'login.html?form=register';
+        });
+    } 
 }
 
 init()
