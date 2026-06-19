@@ -1,0 +1,564 @@
+{
+  "noticias": [
+    {
+      "id": "1",
+      "titulo": "Inscrições abertas OMIF 2026",
+      "olimpiada_id": 1,
+      "img_card": "http://localhost:3000/assets/img/cards/omif.jpg",
+      "data": "05/06/2026",
+      "descricao": "A Olimpíada de Matemática dos Institutos Federais (OMIF) abriu as inscrições para a primeira fase das provas.",
+      "conteudo": "A Olimpíada de Matemática dos Institutos Federais (OMIF) abriu oficialmente as inscrições para a edição de 2026. O anúncio foi realizado nesta semana pela organização da competição e já mobiliza estudantes de diferentes Institutos Federais do país. A expectativa é de aumento no número de participantes em relação às últimas edições, ampliando ainda mais o alcance da olimpíada entre os jovens interessados em matemática e raciocínio lógico. Segundo os organizadores, o período de inscrições permanecerá aberto durante as próximas semanas, permitindo que estudantes realizem o cadastro diretamente em suas instituições de ensino. A edição deste ano contará com provas atualizadas e novos desafios voltados à resolução de problemas, interpretação matemática e pensamento analítico. A organização também informou que serão promovidas ações preparatórias, simulados e atividades de incentivo ao longo dos próximos meses para auxiliar os participantes na preparação para as provas.",
+      "tags": [
+        2,
+        2,
+        1
+      ],
+      "destaque": false
+    },
+    {
+      "id": "2",
+      "titulo": "Inscrições abertas OBMEP 2026",
+      "olimpiada_id": 2,
+      "img_card": "assets/img/cards/obmep.jpg",
+      "data": "01/06/2026",
+      "descricao": "A Olimpíada Brasileira de Matemáticas das Escolas Públicas (OBMEP) abriu as inscrições para as provas.",
+      "conteudo": "As inscrições para a edição 2026 da Olimpíada Brasileira de Matemática das Escolas Públicas (OBMEP) já estão abertas. O anúncio foi feito pela coordenação nacional da olimpíada, que destacou a expectativa de participação de milhões de estudantes de todo o Brasil nesta nova edição da competição. Escolas públicas e privadas poderão realizar o cadastro dos alunos dentro do prazo divulgado pela organização. A competição deste ano trará novas propostas de questões e continuará priorizando problemas voltados ao raciocínio lógico, interpretação e criatividade matemática. A organização reforçou ainda a importância da olimpíada no incentivo ao aprendizado da matemática nas escolas brasileiras e informou que materiais de apoio e conteúdos preparatórios serão disponibilizados para auxiliar estudantes e professores durante o período que antecede as provas.",
+      "tags": [
+        2,
+        2,
+        1
+      ],
+      "destaque": false
+    },
+    {
+      "id": "3",
+      "titulo": "Premiação da OBA celebra talentos",
+      "olimpiada_id": 3,
+      "img_card": "assets/img/cards/oba.jpg",
+      "data": "21/05/2026",
+      "descricao": "A cerimônia de premiação da Olimpíada Brasileira de Astronomia e Astronáutica reuniu os melhores estudantes do país em um evento especial.",
+      "conteudo": "A Olimpíada Brasileira de Astronomia e Astronáutica (OBA) realizou sua cerimônia oficial de premiação da edição de 2026, reunindo estudantes, professores e representantes de instituições de ensino de todo o Brasil. O evento celebrou o desempenho dos participantes que se destacaram ao longo da competição, com entrega de medalhas de ouro, prata e bronze, além de certificados de menção honrosa. A cerimônia contou com palestras de pesquisadores da área e momentos de integração entre os jovens talentos premiados. Segundo a organização, a edição deste ano registrou o maior número de medalhas distribuídas para escolas públicas, reforçando o alcance e a importância social da olimpíada no incentivo ao interesse científico entre os jovens brasileiros.",
+      "tags": [
+        7,
+        8,
+        9
+      ],
+      "destaque": true
+    },
+    {
+      "id": "4",
+      "titulo": "Ouro para equipe mineira na ONHB",
+      "olimpiada_id": 5,
+      "img_card": "assets/img/cards/onhb.png",
+      "data": "14/05/2026",
+      "descricao": "Estudantes de Minas Gerais conquistaram medalha de ouro na fase final da ONHB.",
+      "conteudo": "A Olimpíada Nacional em História do Brasil (ONHB) encerrou sua edição de 2026 com destaque para equipes mineiras que alcançaram excelentes resultados na etapa final da competição. O anúncio foi realizado pela organização após a divulgação oficial das notas e classificações das equipes participantes. Professores e estudantes comemoraram o desempenho nas redes sociais e em eventos promovidos pelas escolas participantes. A competição reuniu milhares de estudantes de todo o país em desafios envolvendo história do Brasil, interpretação de documentos históricos, análise crítica e debates sobre acontecimentos nacionais. Segundo a coordenação da olimpíada, a edição deste ano registrou crescimento no número de inscritos e maior participação de instituições públicas.",
+      "tags": [
+        11,
+        8,
+        5
+      ],
+      "destaque": true
+    },
+    {
+      "id": "5",
+      "titulo": "Resultado oficial OBA 2026 divulgado",
+      "olimpiada_id": 3,
+      "img_card": "assets/img/cards/oba.jpg",
+      "data": "03/05/2026",
+      "descricao": "Foi divulgado neste sábado (13) o resultado oficial da Olimpíada Brasileira de Astronomia e Astronáutica (OBA).",
+      "conteudo": "A Olimpíada Brasileira de Astronomia e Astronáutica (OBA) divulgou oficialmente os resultados da edição de 2026. Após semanas de expectativa, estudantes de todo o país já podem consultar o desempenho obtido na competição, considerada uma das principais iniciativas científicas voltadas ao ensino de astronomia e ciências espaciais no Brasil. De acordo com a organização, a edição deste ano registrou ampla participação de escolas públicas e privadas, além de um crescimento significativo no número de inscritos em comparação aos anos anteriores. Os resultados incluem medalhas, certificados e classificações gerais dos participantes em diferentes níveis de ensino. A divulgação movimentou estudantes e professores nas redes sociais, com diversas instituições comemorando o desempenho de seus alunos e destacando a importância da olimpíada no estímulo ao interesse científico entre os jovens.",
+      "tags": [
+        6,
+        7,
+        9
+      ],
+      "destaque": true
+    },
+    {
+      "id": "6",
+      "titulo": "Premiados na ONC ganham intercâmbio",
+      "olimpiada_id": 4,
+      "img_card": "assets/img/cards/onc.jpg",
+      "data": "30/04/2026",
+      "descricao": "Os alunos premiados na Olimpíada Nacional de Ciências podem concorrer a intercâmbio.",
+      "conteudo": "A Olimpíada Nacional de Ciências (ONC) anunciou que estudantes premiados nas últimas edições poderão participar de programas de intercâmbio e experiências educacionais especiais promovidas em parceria com instituições acadêmicas e científicas. A novidade foi recebida com entusiasmo pelos participantes e amplia ainda mais as oportunidades oferecidas pela competição. Segundo a organização, os programas terão foco em atividades acadêmicas, culturais e científicas, permitindo que os estudantes tenham contato com diferentes ambientes educacionais e experiências de formação complementar. O anúncio também reforça o crescimento da ONC nos últimos anos e o reconhecimento da olimpíada como uma importante iniciativa de incentivo à educação científica no Brasil. A expectativa é que os novos programas motivem ainda mais estudantes a participarem das próximas edições da competição.",
+      "tags": [
+        10,
+        8,
+        10
+      ],
+      "destaque": true
+    },
+    {
+      "id": "7",
+      "titulo": "Lista de classificados da ONHB divulgada",
+      "olimpiada_id": 5,
+      "img_card": "assets/img/cards/onhb.png",
+      "data": "18/04/2026",
+      "descricao": "A Olimpíada Nacional em História do Brasil divulgou os nomes das equipes classificadas para a etapa final presencial da edição de 2026.",
+      "conteudo": "A Olimpíada Nacional em História do Brasil (ONHB) anunciou oficialmente a lista de equipes classificadas para a etapa final presencial da edição de 2026. As equipes contempladas foram selecionadas com base no desempenho acumulado ao longo das fases online semanais, que reuniram milhares de estudantes de escolas públicas e privadas de todo o país. A divulgação gerou grande movimentação entre participantes e professores nas redes sociais, com diversas escolas comemorando a classificação de seus alunos. Segundo a organização, a final presencial será realizada em universidade parceira e contará com atividades complementares, como palestras e visitas acadêmicas para as equipes participantes. Os classificados devem ficar atentos ao prazo de confirmação de presença, disponível no site oficial da olimpíada.",
+      "tags": [
+        6,
+        6,
+        5
+      ],
+      "destaque": true
+    },
+    {
+      "id": "8",
+      "titulo": "Resultado final da ONC 2026 é divulgado",
+      "olimpiada_id": 4,
+      "img_card": "assets/img/cards/onc.jpg",
+      "data": "15/04/2026",
+      "descricao": "A Olimpíada Nacional de Ciências divulgou o resultado final da edição de 2026 com os estudantes classificados para a premiação.",
+      "conteudo": "A Olimpíada Nacional de Ciências (ONC) divulgou oficialmente o resultado final da edição de 2026, encerrando mais um ciclo de desafios científicos para estudantes de todo o Brasil. A lista completa dos classificados já está disponível no site oficial da competição, onde os participantes podem consultar suas pontuações e classificações por nível de ensino e região. De acordo com a organização, a edição deste ano contou com participação recorde e apresentou questões de alto nível nas áreas de biologia, física, química, astronomia e história. Os estudantes premiados serão convidados para a cerimônia de encerramento, que acontecerá nas próximas semanas em data a ser confirmada pela coordenação nacional da olimpíada.",
+      "tags": [
+        6,
+        7,
+        10
+      ],
+      "destaque": true
+    },
+    {
+      "id": "9",
+      "titulo": "Edital da OMQ 2026 publicado",
+      "olimpiada_id": 7,
+      "img_card": "assets/img/cards/omq.png",
+      "data": "07/04/2026",
+      "descricao": "A Olimpíada Mineira de Química publicou o edital oficial da edição de 2026 com as regras, critérios de participação e datas das etapas.",
+      "conteudo": "A Olimpíada Mineira de Química (OMQ) publicou nesta semana o edital oficial da edição de 2026, trazendo todas as informações necessárias para estudantes e professores que desejam participar da competição. O documento detalha os critérios de elegibilidade, as regras de participação, os conteúdos programáticos de cada etapa e o calendário completo da olimpíada. Entre as novidades anunciadas no edital está a ampliação do número de vagas para a fase presencial e a inclusão de questões experimentais já na segunda etapa da competição. A organização recomenda que escolas e estudantes realizem a leitura atenta do documento antes de efetuar a inscrição, disponível no site oficial da olimpíada a partir da data de abertura das inscrições.",
+      "tags": [
+        3,
+        1,
+        7
+      ],
+      "destaque": false
+    },
+    {
+      "id": "10",
+      "titulo": "OBFEP anuncia nova etapa experimental",
+      "olimpiada_id": 6,
+      "img_card": "assets/img/cards/obfep.png",
+      "data": "04/04/2026",
+      "descricao": "A Olimpíada Brasileira de Física das Escolas Públicas contará com novas atividades práticas na edição 2026.",
+      "conteudo": "A coordenação da Olimpíada Brasileira de Física das Escolas Públcas (OBFEP) anunciou mudanças importantes para a edição de 2026 da competição. Entre as novidades divulgadas está a ampliação das atividades experimentais e práticas aplicadas aos estudantes classificados para fases avançadas da olimpíada. Segundo os organizadores, o objetivo é aproximar ainda mais os participantes de situações reais de laboratório e investigação científica. A atualização do formato foi recebida positivamente por professores e estudantes, que consideram as experiências práticas fundamentais para o desenvolvimento acadêmico nas áreas de física e ciências exatas. A expectativa da organização é ampliar o interesse dos jovens pela pesquisa científica e incentivar futuros talentos para universidades e centros de tecnologia.",
+      "tags": [
+        10,
+        1,
+        8
+      ],
+      "destaque": true
+    },
+    {
+      "id": "11",
+      "titulo": "OMQ divulga calendário atualizado",
+      "olimpiada_id": 7,
+      "img_card": "assets/img/cards/omq.png",
+      "data": "26/03/2026",
+      "descricao": "A Olimpíada Mineira de Química divulgou o cronograma completo da próxima edição.",
+      "conteudo": "A Olimpíada Mineira de Química (OMQ) publicou nesta semana o calendário oficial para a edição de 2026 da competição. O cronograma inclui datas de inscrições, fases presenciais, divulgação de resultados e atividades preparatórias organizadas por universidades parceiras e instituições de ensino do estado. A expectativa é de participação recorde entre estudantes do ensino médio interessados em química e ciências naturais. Além das provas tradicionais, a organização confirmou a realização de palestras, simulados e encontros acadêmicos voltados aos participantes classificados para as etapas finais. Professores destacaram a importância da olimpíada como ferramenta de incentivo ao aprendizado científico e ao desenvolvimento de jovens talentos nas áreas de pesquisa e inovação.",
+      "tags": [
+        1,
+        1,
+        7
+      ],
+      "destaque": true
+    },
+    {
+      "id": "12",
+      "titulo": "ONHB abre inscrições para edição histórica",
+      "olimpiada_id": 5,
+      "img_card": "assets/img/cards/onhb.png",
+      "data": "20/03/2026",
+      "descricao": "A ONHB espera reunir número recorde de equipes na edição de 2026.",
+      "conteudo": "As inscrições para a Olimpíada Nacional em História do Brasil (ONHB) já estão abertas e a organização espera registrar a maior participação da história da competição. A edição de 2026 contará com novas propostas de atividades interativas, análises documentais e desafios envolvendo interpretação histórica e pensamento crítico. Escolas públicas e privadas de diferentes regiões do país já iniciaram o processo de formação de equipes para participação na competição. De acordo com os organizadores, a olimpíada continuará incentivando o estudo da história brasileira de maneira dinâmica e interdisciplinar, aproximando estudantes de debates sociais, culturais e políticos importantes para a formação acadêmica e cidadã.",
+      "tags": [
+        2,
+        2,
+        5
+      ],
+      "destaque": false
+    }
+  ],
+  "olimpiadas": [
+    {
+      "id": "1",
+      "nome": "OMIF",
+      "quem_pode": "Estudantes regularmente matriculados do 6° ano do ensino fundamental ao 3° ano do ensino médio ou equivalente nos Institutos Federais de Educação, Ciência e Tecnologia de todo o Brasil.",
+      "etapas": [
+        {
+          "fase": "1° Fase",
+          "descricao": "Prova objetiva realizada na própria instituição do aluno.",
+          "data": "Janeiro de 2026"
+        },
+        {
+          "fase": "2° Fase",
+          "descricao": "Prova discursiva em uma das instituições selecionada por todo Brasil.",
+          "data": "Agosto de 2026"
+        }
+      ],
+      "premiacao": "Medalhas de ouro, prata, bronze e menção honrosa para os destaques da competição, certificados e oportunidade de viajar pelo Brasil com diversas experiências.",
+      "sobre": "A OMIF é uma iniciativa que promove a inclusão, o raciocinio lógico e o desenvolvimento acadêmico dos estudantes dos Institutos Federais, contribuindo para a formação de futuros profissionais nas áreas de ciência e tecnologia.",
+      "link": "omif.com.br",
+      "img_carrossel": "assets/img/carrossels/carrossel_omif.png",
+      "img_banner": "assets/img/banners/banner_omif.png",
+      "imgs_conteudo": [
+        "assets/img/conteudos/omif/omif1.jpg",
+        "assets/img/conteudos/omif/omif2.jpg",
+        "assets/img/conteudos/omif/omif3.jpg",
+        "assets/img/conteudos/omif/omif4.jpg",
+        "assets/img/conteudos/omif/omif5.jpg",
+        "assets/img/conteudos/omif/omif6.jpg",
+        "assets/img/conteudos/omif/omif7.jpg",
+        "assets/img/conteudos/omif/omif8.jpg"
+      ],
+      "cor": "#198754"
+    },
+    {
+      "id": "2",
+      "nome": "OBMEP",
+      "quem_pode": "Estudantes do 6° ano do ensino fundamental ao 3° ano do ensino médio, matriculados em escolas públicas ou privadas de todo o Brasil.",
+      "etapas": [
+        {
+          "fase": "1° Fase",
+          "descricao": "Prova objetiva aplicada na própria escola do estudante.",
+          "data": "Junho de 2026"
+        },
+        {
+          "fase": "2° Fase",
+          "descricao": "Prova discursiva para os alunos classificados na primeira etapa.",
+          "data": "Outubro de 2026"
+        }
+      ],
+      "premiacao": "Medalhas de ouro, prata, bronze, certificados de menção honrosa, bolsas de iniciação científica e participação em programas acadêmicos.",
+      "sobre": "A OBMEP busca incentivar o estudo da matemática e identificar jovens talentos em escolas públicas e privadas, promovendo inclusão social e desenvolvimento educacional em todo o país.",
+      "link": "www.obmep.org.br",
+      "img_carrossel": "assets/img/carrossels/carrossel_obmep.png",
+      "img_banner": "assets/img/banners/banner_obmep.png",
+      "imgs_conteudo": [
+        "assets/img/conteudos/obmep/obmep1.png",
+        "assets/img/conteudos/obmep/obmep2.png",
+        "assets/img/conteudos/obmep/obmep3.png",
+        "assets/img/conteudos/obmep/obmep4.png",
+        "assets/img/conteudos/obmep/obmep5.png",
+        "assets/img/conteudos/obmep/obmep6.png",
+        "assets/img/conteudos/obmep/obmep7.png",
+        "assets/img/conteudos/obmep/obmep8.png"
+      ],
+      "cor": "#9F1239"
+    },
+    {
+      "id": "3",
+      "nome": "OBA",
+      "quem_pode": "Estudantes do ensino fundamental e médio regularmente matriculados em escolas públicas e privadas de todo o território nacional.",
+      "etapas": [
+        {
+          "fase": "Fase Única",
+          "descricao": "Prova teórica aplicada nas escolas participantes envolvendo astronomia e astronáutica (inscrição individual).",
+          "data": "Maio de 2026"
+        },
+        {
+          "fase": "Seletivas Internacionais",
+          "descricao": "Os melhores alunos podem ser convidados para treinamentos e seletivas internacionais.",
+          "data": "Julho de 2026"
+        }
+      ],
+      "premiacao": "Distribuição de medalhas, certificados e oportunidades de participação em treinamentos científicos e competições internacionais.",
+      "sobre": "A Olimpíada Brasileira de Astronomia e Astronáutica tem como objetivo estimular o interesse dos estudantes pelas áreas de astronomia, física, astronáutica e ciências espaciais, contribuindo para a descoberta de novos talentos e paixões.",
+      "link": "www.oba.org.br",
+      "img_carrossel": "assets/img/carrossels/carrossel_oba.png",
+      "img_banner": "assets/img/banners/banner_oba.png",
+      "imgs_conteudo": [
+        "assets/img/conteudos/oba/oba1.jpg",
+        "assets/img/conteudos/oba/oba2.jpg",
+        "assets/img/conteudos/oba/oba3.jpg",
+        "assets/img/conteudos/oba/oba4.jpg",
+        "assets/img/conteudos/oba/oba5.jpg",
+        "assets/img/conteudos/oba/oba6.jpg",
+        "assets/img/conteudos/oba/oba7.jpg",
+        "assets/img/conteudos/oba/oba8.jpg"
+      ],
+      "cor": "#20C997"
+    },
+    {
+      "id": "4",
+      "nome": "ONC",
+      "quem_pode": "Alunos do ensino fundamental e médio matriculados em instituições públicas ou privadas de ensino em todo o Brasil.",
+      "etapas": [
+        {
+          "fase": "1° Fase",
+          "descricao": "Prova objetiva online aplicada para todos os participantes inscritos (inscrição individual).",
+          "data": "Agosto de 2026"
+        },
+        {
+          "fase": "2° Fase",
+          "descricao": "Etapa avançada para os classificados da primeira fase com questões interdisciplinares.",
+          "data": "Setembro de 2026"
+        }
+      ],
+      "premiacao": "Medalhas nacionais, certificados, reconhecimento acadêmico e possibilidade de participação em programas científicos e eventos educacionais.",
+      "sobre": "A Olimpíada Nacional de Ciências incentiva o interesse dos estudantes pelas áreas científicas, promovendo conhecimento interdisciplinar em biologia, física, química, astronomia e história.",
+      "link": "www.onciencias.org",
+      "img_carrossel": "assets/img/carrossels/carrossel_onc.png",
+      "img_banner": "assets/img/banners/banner_onc.png",
+      "imgs_conteudo": [
+        "assets/img/conteudos/onc/onc1.png",
+        "assets/img/conteudos/onc/onc2.png",
+        "assets/img/conteudos/onc/onc3.png",
+        "assets/img/conteudos/onc/onc4.png",
+        "assets/img/conteudos/onc/onc5.png",
+        "assets/img/conteudos/onc/onc6.png",
+        "assets/img/conteudos/onc/onc7.png",
+        "assets/img/conteudos/onc/onc8.png"
+      ],
+      "cor": "#198754"
+    },
+    {
+      "id": "5",
+      "nome": "ONHB",
+      "quem_pode": "Estudantes do ensino fundamental e médio de escolas públicas e privadas de todo o Brasil.",
+      "etapas": [
+        {
+          "fase": "Fases Online",
+          "descricao": "Desafios semanais realizados pela plataforma digital da olimpíada.",
+          "data": "Maio de 2026"
+        },
+        {
+          "fase": "Final Presencial",
+          "descricao": "Etapa final realizada em universidade parceira.",
+          "data": "Agosto de 2026"
+        }
+      ],
+      "premiacao": "Medalhas, certificados e reconhecimento acadêmico nacional.",
+      "sobre": "A ONHB promove o estudo da história brasileira de forma crítica e interdisciplinar.",
+      "link": "www.onhb.com.br",
+      "img_carrossel": "assets/img/carrossels/carrossel_onhb.png",
+      "img_banner": "assets/img/banners/banner_onhb.png",
+      "imgs_conteudo": [
+        "assets/img/conteudos/onhb/onhb1.jpg",
+        "assets/img/conteudos/onhb/onhb2.jpg",
+        "assets/img/conteudos/onhb/onhb3.jpg",
+        "assets/img/conteudos/onhb/onhb4.jpg",
+        "assets/img/conteudos/onhb/onhb5.jpg",
+        "assets/img/conteudos/onhb/onhb6.jpg",
+        "assets/img/conteudos/onhb/onhb7.jpg",
+        "assets/img/conteudos/onhb/onhb8.jpg"
+      ],
+      "cor": "#8B5E3C"
+    },
+    {
+      "id": "6",
+      "nome": "OBFEP",
+      "quem_pode": "Estudantes do ensino fundamental e médio matriculados em instituições brasileiras.",
+      "etapas": [
+        {
+          "fase": "1° Fase",
+          "descricao": "Prova objetiva aplicada nas escolas participantes.",
+          "data": "Agosto de 2026"
+        },
+        {
+          "fase": "Fases Avançadas",
+          "descricao": "Provas teóricas e experimentais para classificados.",
+          "data": "Outubro de 2026"
+        }
+      ],
+      "premiacao": "Medalhas, certificados e possibilidade de participação em seletivas internacionais.",
+      "sobre": "A OBFEP incentiva o estudo da física e o desenvolvimento científico entre jovens estudantes.",
+      "link": "www.sbfisica.org.br",
+      "img_carrossel": "assets/img/carrossels/carrossel_obfep.png",
+      "img_banner": "assets/img/banners/banner_obfep.jpeg",
+      "imgs_conteudo": [
+        "assets/img/conteudos/obfep/obfep1.png",
+        "assets/img/conteudos/obfep/obfep2.png",
+        "assets/img/conteudos/obfep/obfep3.png",
+        "assets/img/conteudos/obfep/obfep4.png",
+        "assets/img/conteudos/obfep/obfep5.png",
+        "assets/img/conteudos/obfep/obfep6.png",
+        "assets/img/conteudos/obfep/obfep7.png",
+        "assets/img/conteudos/obfep/obfep8.png"
+      ],
+      "cor": "#DC3545"
+    },
+    {
+      "id": "7",
+      "nome": "OMQ",
+      "quem_pode": "Estudantes do ensino médio regularmente matriculados em Minas Gerais.",
+      "etapas": [
+        {
+          "fase": "1° Etapa",
+          "descricao": "Prova objetiva aplicada online.",
+          "data": "Abril de 2026"
+        },
+        {
+          "fase": "2° Etapa",
+          "descricao": "Prova discursiva e experimental.",
+          "data": "Junho de 2026"
+        }
+      ],
+      "premiacao": "Medalhas, certificados e oportunidades em programas acadêmicos.",
+      "sobre": "A OMQ busca incentivar o aprendizado da química e revelar novos talentos científicos em Minas Gerais.",
+      "link": "omq.qui.ufmg.br",
+      "img_carrossel": "assets/img/carrossels/carrossel_omq.png",
+      "img_banner": "assets/img/banners/banner_omq.jpeg",
+      "imgs_conteudo": [
+        "assets/img/conteudos/omq/omq1.jpg",
+        "assets/img/conteudos/omq/omq2.jpg",
+        "assets/img/conteudos/omq/omq3.jpg",
+        "assets/img/conteudos/omq/omq4.jpg",
+        "assets/img/conteudos/omq/omq5.jpg",
+        "assets/img/conteudos/omq/omq6.jpg",
+        "assets/img/conteudos/omq/omq7.jpg",
+        "assets/img/conteudos/omq/omq8.jpg"
+      ],
+      "cor": "#FD7E14"
+    }
+  ],
+  "categorias_noticias": [
+    {
+      "id": "1",
+      "nome": "Calendário"
+    },
+    {
+      "id": "2",
+      "nome": "Inscrições"
+    },
+    {
+      "id": "3",
+      "nome": "Edital"
+    },
+    {
+      "id": "4",
+      "nome": "Gabarito"
+    },
+    {
+      "id": "5",
+      "nome": "Prova corrigida"
+    },
+    {
+      "id": "6",
+      "nome": "Resultado"
+    },
+    {
+      "id": "7",
+      "nome": "Premiação"
+    },
+    {
+      "id": "8",
+      "nome": "Comunicado"
+    },
+    {
+      "id": "9",
+      "nome": "Adiamento"
+    },
+    {
+      "id": "10",
+      "nome": "Novidade"
+    },
+    {
+      "id": "11",
+      "nome": "Destaques"
+    }
+  ],
+  "fases": [
+    {
+      "id": "1",
+      "nome": "Pré-Inscrições"
+    },
+    {
+      "id": "2",
+      "nome": "Período de inscrições"
+    },
+    {
+      "id": "3",
+      "nome": "1° fase"
+    },
+    {
+      "id": "4",
+      "nome": "2° fase"
+    },
+    {
+      "id": "5",
+      "nome": "3° fase"
+    },
+    {
+      "id": "6",
+      "nome": "Divulgação de classificados"
+    },
+    {
+      "id": "7",
+      "nome": "Divulgação do resultado final"
+    },
+    {
+      "id": "8",
+      "nome": "Fase de premiação"
+    }
+  ],
+  "areas_conhecimento": [
+    {
+      "id": "1",
+      "nome": "Matemática"
+    },
+    {
+      "id": "2",
+      "nome": "Programação"
+    },
+    {
+      "id": "3",
+      "nome": "Biologia"
+    },
+    {
+      "id": "4",
+      "nome": "Filosofia"
+    },
+    {
+      "id": "5",
+      "nome": "História"
+    },
+    {
+      "id": "6",
+      "nome": "Geografia"
+    },
+    {
+      "id": "7",
+      "nome": "Química"
+    },
+    {
+      "id": "8",
+      "nome": "Física"
+    },
+    {
+      "id": "9",
+      "nome": "Ciências Espaciais"
+    },
+    {
+      "id": "10",
+      "nome": "Ciências"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "username": "jp_silva",
+      "nome": "João Pedro Silva",
+      "email": "joao@email.com",
+      "senha": "abc123",
+      "admin": false,
+      "id__olimp_favoritas": [2, 5, 7]
+    },
+    {
+      "id": "2",
+      "username": "bguedes",
+      "nome": "Bernardo Guedes da Silveira",
+      "email": "bernardo@email.com",
+      "senha": "xyz789",
+      "admin": true,
+      "id__olimp_favoritas": [
+        1,
+        3,
+        4
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

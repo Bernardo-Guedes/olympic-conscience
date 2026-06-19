@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Conscience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/locales/pt-br.global.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body id="page-calendar">
+    <header class="fixed-md-top">
+        <div class="cabecalho d-flex align-items-center px-3">
+            <a href="index.html">
+                <img class="logo" src="assets/img/logo.png" alt="">
+            </a>
+            <h1 id="titulo-header" class="flex-grow-1 text-center fs-cabecalho">Olympic Conscience</h1>
+            <img class="foto-perfil me-1 me-md-4" src="assets/img/foto_perfil.JPG" alt="">
+        </div>
+        <nav>
+            <input type="checkbox" id="menuToggle" class="d-none">
+            <label for="menuToggle" class="menu-icon d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="25px" height="25px" fill="#650094"><path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="25px" height="25px" fill="white"><path d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C221.6 240.4 221.6 255.6 231 264.9L286 319.9L231 374.9C221.6 384.3 221.6 399.5 231 408.8C240.4 418.1 255.6 418.2 264.9 408.8L319.9 353.8L374.9 408.8C384.3 418.2 399.5 418.2 408.8 408.8C418.1 399.4 418.2 384.2 408.8 374.9L353.8 319.9L408.8 264.9C418.2 255.5 418.2 240.3 408.8 231C399.4 221.7 384.2 221.6 374.9 231L319.9 286L264.9 231C255.5 221.6 240.3 221.6 231 231z"/></svg>
+            </label>
+            <ul class="lista-menu d-flex flex-wrap flex-md-nowrap list-unstyled mb-0 py-md-2 px-lg-5 justify-content-center justify-content-lg-between">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="cadastro_noticia.html?edit=false">Nova Notícia</a></li>
+                <li><a href="calendar.html">Calendário</a></li>
+                <li><a href="">Experiências</a></li>
+                <li><a href="">Ranking</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <main class="p-3 pt-4 bg-light mt-2 mt-md-0 mx-3 mx-md-5 rounded-3">
+        <div id="header-calendar" class="d-flex ms-4">
+            <i class="fa-solid fa-calendar-day mt-2" style="font-size: 30px; color: #650094;"></i>
+            <div class="ms-3">
+                <h2 id="titulo-pagina" class="mb-1">Calendário</h2>
+                <p id="texto-pagina">Acompanhe prazos, fases e eventos das principais olimpíadas científicas.</p>
+            </div>
+        </div>
+        <div class="d-flex flex-column-reverse flex-lg-row mt-3 ms-4" id="conteudo">
+            <div class="py-3 ps-3 pe-5 border border-1 border-lightgray rounded-2" id="filtro">
+                <h3 class="mb-3"><i class="fa-solid fa-sliders me-2" style="color: #650094; font-size: 1.2rem;"></i>Filtros</h3>
+                <div class="d-flex  justify-content-around d-lg-block">
+                    <div>
+                        <p class="fw-semibold">Olimpiadas</p>
+                        <div class="mb-3" id="filtro-olimpiadas"></div>
+                    </div>
+                    <div class="ms-5 ms-lg-0">
+                        <p class="fw-semibold">Tipo de notícia</p>
+                        <div id="filtro-assuntos"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-1 border-lightgray rounded-2 p-4 mb-3 mb-lg-0" id="calendar-pai">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container-fluid">
+            <div class="row justify-content-center py-4 g-4 mt-3">
+
+                <div class="col-12 col-lg-4 rodape-geral d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <img class="logo-rodape" src="assets/img/logo.png" alt="">
+                        <h3 class="mb-0">Olympic Conscience</h3>
+                    </div>
+                    <p class="px-5 mx-sm-5 mx-lg-0">Não nos formamos apenas medalhistas, mas mentes curiosas, disciplinadas e capazes de resolver problemas que o mundo ainda nem sabe que tem.</p>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 d-none d-md-flex rodape-nav border-start-md border-top-sm d-flex flex-column align-items-center justify-content-center">
+                    <h4>Navegação</h4>
+                    <ul class="lista-nav-rodape list-unstyled">
+                        <li><a href="">Página Inicial</a></li>
+                        <li><a href="">Nova notícia</a></li>
+                        <li><a href="">Calendário</a></li>
+                        <li><a href="">Experiências</a></li>
+                        <li><a href="">Ranking</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 rodape-contato border-start-md border-top-sm d-flex flex-column align-items-center justify-content-center">
+                    <h4>Contato</h4>
+                    <ul class="contatos list-unstyled">
+                        <li>📧 contato@olympicconscience.org</li>
+                        <li>📞 (31) 99823-2504</li>
+                        <li>📌 Belo Horizonte, MG - Brasil</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="info-aluno" class="container-fluid">
+            <div class="row">
+                <h3 class="px-3 ps-5 pb-3 mb-5 mt-3">Informações do Aluno</h3>
+            </div>
+            <div class="row px-5">
+                <div id="sobre-container" class="col-12 col-xl-7 d-none d-sm-block me-5 pe-5">
+                    <h4>Sobre</h4>
+                    <p>Sou o Bernardo Guedes, estudante de Engenharia de Software na PUC Minas e apaixonado por tecnologia, programação e desafios. Não atoa desenvolvi uma trajetória ao longo da minha vida acadêmica me desafiando a participar da maior quantidade de olimíadas científicas possíveis.<br> Esse site foi uma ideia que tive juntamente com outros quatro amigos no ensino médio, mas infelizmente não conseguimos levar adiante. Portanto, aproveito essa oportunidade para dar luz a uma ideia de cinco jovens que enxergam um futuro promissor para o país, com jovens cada vez mais interessados, curiosos e envolvidos com o conhecimento.</p>
+                </div>
+                <div class="col-12 col-xl-4 pb-5">
+                    <h4>Autoria</h4>
+                    <div class="d-flex mt-3 mb-3">
+                        <img id="img-aluno" src="assets/img/foto_perfil.JPG" alt="img-aluno">
+                        <ul class="list-unstyled ms-4">
+                            <li>Aluno: Bernardo Guedes da Silveira</li>
+                            <li>Curso: Engenharia de Software</li>
+                            <li>Turno: Noite</li>
+                        </ul>
+                    </div>
+                    <h4 class="d-inline me-3">Redes Sociais:</h4>
+                    <a href="https://www.instagram.com/bguedessilveira/" target="_blank">
+                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px"
+                            height="20px" fill="white">
+                            <path
+                                d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bernardo-guedes-a278923a1/" target="_blank">
+                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px"
+                            height="20px" fill="white">
+                            <path
+                                d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm5 170.2l66.5 0 0 213.8-66.5 0 0-213.8zm71.7-67.7a38.5 38.5 0 1 1 -77 0 38.5 38.5 0 1 1 77 0zM317.9 416l0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2-66.4 0z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Bernardo-Guedes" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px" height="20px"
+                            fill="white">
+                            <path
+                                d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                        </svg>
+                    </a>
+                </div>
+                <p class="copy text-center pb-3 mb-0">© 2026 Olympic Conscience. Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/calendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "olympic-conscience",
+  "version": "1.0.0",
+  "description": "Projeto Olympic Conscience",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db/db.json --port 3000 --static ./public"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bernardo-Guedes/olympic-conscience.git"
+  },
+  "keywords": [],
+  "author": "Bernardo Guedes",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Bernardo-Guedes/olympic-conscience/issues"
+  },
+  "homepage": "https://github.com/Bernardo-Guedes/olympic-conscience#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}
