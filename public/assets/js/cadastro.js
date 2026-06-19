@@ -11,7 +11,7 @@ const select_area = document.getElementById("select-area")
 const form = document.querySelector('.needs-validation');
 const uploadArea = document.getElementById("upload-area");
 const trash = document.getElementById("trash")
-const btn_cancel = document.getElementById("btn-cancel")
+const btn_cancel = document.getElementById("cn-btn-cancel")
 
 async function fetchItems() {
     const [noticias, olimpiadas, tags1, tags2, tags3] = await Promise.all([
@@ -63,9 +63,9 @@ async function init() {
     // Modo de edição de notícia
     if (editMode) {
         const noticia = data.noticias.find(n => n.id === noticiaId);
-        document.getElementById("titulo-pagina").textContent = "Editar notícia";
-        document.getElementById("texto-pagina").textContent = "Modifique os campos abaixo para editar a notícia.";
-        document.getElementById("btn-confirm").textContent = "Editar notícia"
+        document.getElementById("titulo-pagina-cadastro").textContent = "Editar notícia";
+        document.getElementById("texto-pagina-cadastro").textContent = "Modifique os campos abaixo para editar a notícia.";
+        document.getElementById("cn-btn-confirm").textContent = "Editar notícia"
         if (!noticia) {
             alert("Notícia não encontrada");
             return;

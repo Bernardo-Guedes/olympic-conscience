@@ -265,11 +265,11 @@ input.item-formulario[type="submit"]:hover {
 .campo-tags{
     width: 30%;
 }
-#trash:hover, #c-btns button:hover{
+#trash:hover, #cn-btns button:hover{
     transform: scale(1.05);
     cursor: pointer;
 }
-#trash, #c-btns button{
+#trash, #cn-btns button{
     transition: 0.3s;
 }
 
@@ -354,6 +354,27 @@ input.item-formulario[type="submit"]:hover {
    margin: 0 auto;
 }
 
+
+/*--------------------------------------------------------CSS da Página de Autenticação---------------------------------------------------------*/
+
+#pagina-login {
+    background-color: #f0f2f6;
+    padding-top: 180px;
+}
+
+#link-entrar:hover, #link-cadastrar:hover, .fa-eye:hover{
+    cursor: pointer;
+}
+
+#btn-confirm-login, #cu-btns button{
+    transition: 0.3s;
+}
+
+#btn-confirm-login:hover, #cu-btns button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
 /*---------------------------------------------------------------CSS do Rodapé ----------------------------------------------------------------*/
 .rodape {
     background-color: rgb(8, 28, 66);
@@ -435,11 +456,47 @@ input.item-formulario[type="submit"]:hover {
         right: 0;
         z-index: 1030;
     }
+
+    #login-form{
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    #pagina-login{
+        padding-top: 150px !important;
+    }
+}
+
+@media (min-width:992px){
+    #pagina-login{
+        padding-top: 180px !important;
+    }
+}
+
+@media (min-width: 1200px){
+    #login-form{
+        margin-left: 250px;
+        margin-right: 250px;
+    }
+    #input-name, #input-email, #campo-user div:first-of-type, #campo-password div:first-of-type, #campo-confirm-password div:first-of-type{
+        width: 75%;
+    }
+
+    #campo-password div:first-of-type div{
+        width: 100%;
+    }
+    #campo-confirm-password div:first-of-type div{
+        width: 100%;
+    }
 }
 
 @media (min-width:768px) and (max-width:768px){
     #pagina-cadastro{
         padding-top: 180px !important;
+    }
+
+    #pagina-login{
+        padding-top: 150px !important;
     }
 
     #details-page{
@@ -459,6 +516,10 @@ input.item-formulario[type="submit"]:hover {
 @media (max-width:767px){
     
     #pagina-cadastro{
+        padding-top: 0;
+    }
+
+    #pagina-login{
         padding-top: 0;
     }
 
