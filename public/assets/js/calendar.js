@@ -75,6 +75,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         };
     });
     const calendarElement = document.getElementById('calendar');
+    const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : null;
+    const isAdmin = usuarioCorrente && usuarioCorrente.admin === true;
     const calendar = new FullCalendar.Calendar(calendarElement, {
         events: eventos,
         locale: 'pt-br',
@@ -121,14 +124,15 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         },
         headerToolbar: {
-            left: 'prev,next today novaNoticia',
+            left: isAdmin ? 'prev,next today novaNoticia' : 'prev,next today',
             center: 'title',
             right: '',
     },
       eventClick: function(info) {
-        alert("Data: " + formatarData(info.event.startStr) + 
-              "\nEvento: " + info.event.title + 
-              "\nDescrição: " + info.event.extendedProps.description);  
+        const noticiaId = data.noticias.find(n => n.titulo === info.event.title)?.id;
+        if (noticiaId) {
+            window.location.href = `details.html?id=${noticiaId}`;
+        }  
       }   
    });
    

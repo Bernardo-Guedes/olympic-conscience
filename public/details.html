@@ -37,7 +37,8 @@
                 class="lista-menu d-flex flex-wrap flex-md-nowrap list-unstyled mb-0 py-md-2 px-lg-5 justify-content-center justify-content-lg-between">
                 <li><a href="index.html">Página Inicial</a></li>
                 <li><a href="cadastro_noticia.html?edit=false">Nova Notícia</a></li>
-                <li><a href="">Notícias salvas  </a></li>
+                <li><a href="calendar.html">Calendário</a></li>
+                <li><a href="favoritos.html">Notícias salvas  </a></li>
             </ul>
         </nav>
     </header>
@@ -100,9 +101,10 @@
                 </div>
             </div>
         </section>
-        <div id="d-btns" class="mt-3 d-flex gap-3 justify-content-end   ">
-            <button id="btn-edit" class="bg-personalize text-light border-0 rounded-2 px-2 py-1" onclick="window.location.href='cadastro_noticia.html'">Editar notícia</button>
-            <button id="btn-delete" class="bg-personalize text-light border-0 rounded-2 px-2 py-1">Excluir notícia</button>
+        <div id="d-btns" class="mt-3 d-flex gap-3 justify-content-end">
+            <button id="btn-add-fav" class="bg-personalize text-light border-0 rounded-2 px-2 py-1"><i class="fa-solid fa-bookmark me-1"></i>Adicionar aos favoritos</button>
+            <button id="btn-edit" class="bg-personalize text-light border-0 rounded-2 px-2 py-1" onclick="window.location.href='cadastro_noticia.html'"><i class="fa-solid fa-pen-to-square me-1"></i>Editar notícia</button>
+            <button id="btn-delete" class="bg-personalize text-light border-0 rounded-2 px-2 py-1"><i class="fa-solid fa-trash-can me-1"></i>Excluir notícia</button>
         </div>
     </main>
     <footer class="rodape">
@@ -120,11 +122,10 @@
                 <div class="col-12 col-md-6 col-lg-4 d-none d-md-flex rodape-nav border-start-md border-top-sm d-flex flex-column align-items-center justify-content-center">
                     <h4>Navegação</h4>
                     <ul class="lista-nav-rodape list-unstyled">
-                        <li><a href="">Página Inicial</a></li>
-                        <li><a href="">Nova notícia</a></li>
-                        <li><a href="">Calendário</a></li>
-                        <li><a href="">Experiências</a></li>
-                        <li><a href="">Ranking</a></li>
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="cadastro_noticia.html?edit=false">Nova Notícia</a></li>
+                        <li><a href="calendar.html">Calendário</a></li>
+                        <li><a href="favoritos.html">Notícias salvas</a></li>
                     </ul>
                 </div>
 

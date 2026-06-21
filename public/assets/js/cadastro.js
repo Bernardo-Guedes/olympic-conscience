@@ -74,11 +74,40 @@ async function init() {
         select_olimpiada.value = noticia.olimpiada_id;
         input_desc.value = noticia.descricao;
         input_content.value = noticia.conteudo;
-        previewImg.src = noticia.img_card;
+        if (noticia.img_card && noticia.img_card.startsWith("data:")) {
+            previewImg.src = noticia.img_card;
+        } else if (noticia.img_card) {
+            const imgTemp = new Image();
+            imgTemp.crossOrigin = "anonymous";
+            imgTemp.onload = () => {
+                const MAX_WIDTH = 400;
+                const MAX_HEIGHT = 300;
+                const QUALITY = 0.5;
+
+                let width = imgTemp.width;
+                let height = imgTemp.height;
+
+                if (width > MAX_WIDTH || height > MAX_HEIGHT) {
+                    const ratio = Math.min(MAX_WIDTH / width, MAX_HEIGHT / height);
+                    width = Math.round(width * ratio);
+                    height = Math.round(height * ratio);
+                }
+                
+                const canvas = document.createElement("canvas");
+                canvas.width = imgTemp.width;
+                canvas.height = imgTemp.height;
+                canvas.getContext("2d").drawImage(imgTemp, 0, 0, width, height)
+                previewImg.src = canvas.toDataURL("image/jpeg", QUALITY);
+            };
+            imgTemp.onerror = () => {
+                previewImg.src = noticia.img_card;
+            };
+            imgTemp.src = noticia.img_card;
+        }
         select_assunto.value = noticia.tags[0];
         select_fase.value = noticia.tags[1];
         select_area.value = noticia.tags[2];
-        if (previewImg.src !== "http://localhost:3000/assets/img/placeholder_image.png") {
+        if (noticia.img_card && !noticia.img_card.includes("placeholder_image")) {
             input_image.removeAttribute("required");
         } else if (!input_image.hasAttribute("required")) {
             input_image.setAttribute("required");
@@ -92,7 +121,6 @@ async function init() {
         });
     }
 
-    // Envio de informações para o json-server
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
         if (!form.checkValidity()) {
@@ -183,13 +211,35 @@ async function init() {
     let urlImage = null;
     input_image.addEventListener("change", () => {
         const arquivo = input_image.files[0];
-        if (arquivo) {
-            if (urlImage) {
-                URL.revokeObjectURL(urlImage);
+        if (!arquivo){
+            return;
+        } 
+        const MAX_WIDTH = 400;
+        const MAX_HEIGHT = 300;
+        const QUALITY = 0.5;
+        const img = new Image();
+        img.onload = () => {
+            let width = img.width;
+            let height = img.height;
+
+            if (width > MAX_WIDTH || height > MAX_HEIGHT) {
+                const ratio = Math.min(MAX_WIDTH / width, MAX_HEIGHT / height);
+                width = Math.round(width * ratio);
+                height = Math.round(height * ratio);
             }
-            urlImage = URL.createObjectURL(arquivo)
-            previewImg.src = urlImage;
-        }
+
+            const canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, width, height);
+
+            previewImg.src = canvas.toDataURL("image/jpeg", QUALITY);
+            URL.revokeObjectURL(urlImage);
+        };
+        urlImage = URL.createObjectURL(arquivo);
+        img.src = urlImage;
     });
 
     // Lixeira que remove imagem selecionada

@@ -7,38 +7,108 @@ async function fetchItems(){
     return data
 }
 
-function renderCards(noticias, olimpiadas){
-    const container_cards = document.getElementById("container-cards")
-    container_cards.innerHTML = ""
-    const lista_cards = document.createElement("div")
-    lista_cards.classList.add("lista-noticias", "d-flex", "flex-wrap", "justify-content-around", "pb-4", "pt-2", "px-3")
-
-    container_cards.appendChild(lista_cards)
-    const carousel_inner = document.querySelector(".carousel-inner")
-    const carousel_indicators = document.querySelector(".carousel-indicators")
-    let slideIndex = 0
+function renderCarrossel(noticias, olimpiadas) {
+    const carousel_inner = document.querySelector(".carousel-inner");
+    const carousel_indicators = document.querySelector(".carousel-indicators");
+    carousel_inner.innerHTML = "";
+    carousel_indicators.innerHTML = "";
+    let slideIndex = 0;
 
     noticias.forEach((noticia) => {
-        const resultado = createCard(noticia, olimpiadas, slideIndex)
-        if (Array.isArray(resultado)){
-            const card = resultado[0]
-            lista_cards.appendChild(card)
-            const carousel_item = resultado[1]
-            carousel_inner.appendChild(carousel_item)
-            const btn_carousel = resultado[2]
-            carousel_indicators.appendChild(btn_carousel)
-            slideIndex++
-        } else {
-            lista_cards.appendChild(resultado)
+        if (noticia.destaque !== true) return;
+        const olimpiada = olimpiadas.find(o => o.id == noticia.olimpiada_id);
+        const resultado = createCard(noticia, olimpiadas, slideIndex);
+        if (Array.isArray(resultado)) {
+            carousel_inner.appendChild(resultado[1]);
+            carousel_indicators.appendChild(resultado[2]);
+            slideIndex++;
+        }
+    });
+}
+
+function renderCards(noticias, olimpiadas, atualizarCarrossel = false) {
+    const container_cards = document.getElementById("container-cards");
+    container_cards.innerHTML = "";
+    const lista_cards = document.createElement("div");
+    lista_cards.classList.add("lista-noticias", "d-flex", "flex-wrap", "justify-content-around", "pb-4", "pt-2", "px-3");
+    container_cards.appendChild(lista_cards);
+
+    if (atualizarCarrossel) {
+        renderCarrossel(noticias, olimpiadas);
+    }
+
+    noticias.forEach((noticia) => {
+        const resultado = createCard(noticia, olimpiadas);
+        const card = Array.isArray(resultado) ? resultado[0] : resultado;
+        lista_cards.appendChild(card);
+    });
+
+    const btn_mais_noticias = document.createElement("button");
+    btn_mais_noticias.classList.add("d-block", "w-auto", "mx-auto", "my-3");
+    btn_mais_noticias.textContent = "Ver todas as notícias";
+    container_cards.appendChild(btn_mais_noticias);
+}
+
+function criarBtnFavorito(noticia) {
+    const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : null;
+
+    const btn = document.createElement("button");
+    btn.classList.add("btn-fav-card", "border-0", "bg-transparent", "ms-1");
+    btn.style.cursor = "pointer";
+
+    const idsFavoritas = (usuarioCorrente?.id_noticias_favoritas || []).map(String);
+    const jaFavorito = idsFavoritas.includes(String(noticia.id));
+
+    btn.innerHTML = jaFavorito
+        ? `<i class="fa-solid fa-bookmark" style="color: rgb(8, 28, 66);"></i>`
+        : `<i class="fa-regular fa-bookmark" style="color: rgb(8, 28, 66);"></i>`;
+
+    btn.addEventListener("click", async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const usuarioLocalJSON = sessionStorage.getItem('usuarioCorrente');
+        const usuarioLocal = usuarioLocalJSON ? JSON.parse(usuarioLocalJSON) : null;
+
+        if (!usuarioLocal || !usuarioLocal.id) {
+            window.location.href = 'login.html?form=login';
+            return;
+        }
+
+        try {
+            const usuario = await fetch(`http://localhost:3000/usuarios/${usuarioLocal.id}`)
+                .then(res => res.json());
+
+            const ids = (usuario.id_noticias_favoritas || []).map(String);
+            const isFav = ids.includes(String(noticia.id));
+
+            const novosFavoritos = isFav
+                ? ids.filter(id => id !== String(noticia.id))
+                : [...ids, String(noticia.id)];
+
+            const response = await fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id_noticias_favoritas: novosFavoritos })
+            });
+
+            if (!response.ok) throw new Error("Erro ao atualizar favoritos");
+
+            usuario.id_noticias_favoritas = novosFavoritos;
+            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuario));
+
+            btn.innerHTML = !isFav
+                ? `<i class="fa-solid fa-bookmark" style="color: rgb(8, 28, 66);"></i>`
+                : `<i class="fa-regular fa-bookmark" style="color: rgb(8, 28, 66);"></i>`;
+
+        } catch (error) {
+            console.error("Erro ao atualizar favoritos:", error);
         }
     });
 
-    const btn_mais_noticias = document.createElement("button")
-    btn_mais_noticias.classList.add("d-block", "w-auto", "mx-auto","my-3")
-    btn_mais_noticias.textContent = "Ver todas as notícias"
-    container_cards.appendChild(btn_mais_noticias)
+    return btn;
 }
-
 
 function createCard(noticia, olimpiadas, slideIndex = 0){
     const card = document.createElement("div")
@@ -64,12 +134,17 @@ function createCard(noticia, olimpiadas, slideIndex = 0){
     const btn_detalhes = document.createElement("button")
     btn_detalhes.textContent = "Saiba mais →"
     btn_detalhes.classList.add("abrir-detalhes", "rounded-2", "border-0", "ms-2", "mt-auto", "align-self-start")
+    const div_btns = document.createElement("div");
+    div_btns.classList.add("d-flex", "align-items-center", "mt-auto", "justify-content-between", "w-100");
+    const btn_fav = criarBtnFavorito(noticia);
+    btn_fav.classList.add("me-3")
+    div_btns.append(btn_detalhes, btn_fav);
     img_card.src = noticia.img_card
     titulo_card.textContent = noticia.titulo
     descricao_card.textContent = noticia.descricao;
     data_card.textContent = noticia.data;
     spans_card.append(etiqueta, data_card)
-    article.append(img_card, titulo_card, spans_card, descricao_card, btn_detalhes)
+    article.append(img_card, titulo_card, spans_card, descricao_card, div_btns)
     card.appendChild(article)
     const elementosClique = article.querySelectorAll(".abrir-detalhes");
     for (let elemento of elementosClique) {
@@ -118,17 +193,18 @@ function createCard(noticia, olimpiadas, slideIndex = 0){
     return card
 }
 
+let data = {}
 async function init(){
-    const data = await fetchItems()
-    renderCards(data.noticias, data.olimpiadas)
+    data = await fetchItems()
+    renderCards(data.noticias, data.olimpiadas, true)
 
-    // Recupera o usuário logado do sessionStorage
     const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
     const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : {};
     const estaLogado = usuarioCorrente && usuarioCorrente.id;
 
-    // Ajusta seção de perfil da sidebar
     if (estaLogado){
+        const usuarioAtualizado = await fetch(`http://localhost:3000/usuarios/${usuarioCorrente.id}`)
+        .then(res => res.json());
         secao_perfil_usuario = document.querySelector(".perfil-usuario")
         secao_perfil_usuario.innerHTML = ""
         secao_perfil_usuario.innerHTML = `
@@ -136,17 +212,16 @@ async function init(){
             <div class="d-flex align-items-center px-3 pt-2"> <img class="foto-perfil"
                     src="" alt="">
                 <div class="ms-2">
-                    <h3 id="nome">Bernardo Guedes</h3>
-                    <h4>Nível: Iniciante</h4>
+                    <h3 id="nome">${usuarioAtualizado.nome}</h3>
+                    <h4>Nível: ${usuarioAtualizado.nivel}</h4>
                 </div>
             </div>
             <div class="pontuacao px-3 pb-3">
                 <p id="meus-pontos">Meus Pontos</p>
-                <p id="num-pontos">1.250</p>
-                <p id="pontos-semana"><span>+90</span> esta semana</p>
+                <p id="num-pontos">${usuarioAtualizado.pontos.toLocaleString("pt-BR")}</p>
+                <p id="pontos-semana"><span>+${usuarioAtualizado.pontos_semana}</span> esta semana</p>
             </div>
         `
-        // Foto da barra lateral (só existe no index)
         const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(usuarioCorrente.nome)}&background=650094&color=fff&size=200&rounded=true`;
         const fotoSidebar = document.querySelector('.perfil-usuario .foto-perfil');
         if (fotoSidebar) fotoSidebar.src = avatarUrl;
@@ -179,7 +254,37 @@ async function init(){
         document.getElementById('btn-hp-register').addEventListener('click', function () {
             window.location = 'login.html?form=register';
         });
-    } 
+    }
+    const form_busca = document.querySelector(".busca-rapida form");
+    form_busca.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const inputs = form_busca.querySelectorAll("input[type='text']");
+        const termOlimpiada = inputs[0].value.trim().toLowerCase();
+        const termAno = inputs[1].value.trim();
+
+        const noticiasFiltradas = data.noticias.filter(noticia => {
+            const olimpiada = data.olimpiadas.find(o => o.id == noticia.olimpiada_id);
+
+            const matchOlimpiada = termOlimpiada === "" ||
+                olimpiada.nome.toLowerCase().includes(termOlimpiada);
+
+            const matchAno = termAno === "" ||
+                noticia.data.includes(termAno);
+
+            return matchOlimpiada && matchAno;
+        });
+
+        renderCards(noticiasFiltradas, data.olimpiadas);
+
+        if (noticiasFiltradas.length === 0) {
+            document.getElementById("container-cards").innerHTML = `
+                <p class="text-center fw-semibold py-5">
+                    Nenhuma notícia encontrada para os filtros informados.
+                </p>
+            `;
+        }
+    }); 
 }
 
 init()

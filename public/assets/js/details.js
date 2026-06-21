@@ -143,56 +143,163 @@
         });
     }
 
+    async function toggleFavorito(idNoticia) {
+        const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+        const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : null;
+
+        if (!usuarioCorrente || !usuarioCorrente.id) {
+            window.location.href = 'login.html?form=login';
+            return;
+        }
+
+        try {
+            const idsFavoritas = (usuarioCorrente.id_noticias_favoritas || []).map(String);
+            const jaFavorito = idsFavoritas.includes(String(idNoticia));
+
+            if (jaFavorito) {
+                usuarioCorrente.id_noticias_favoritas = idsFavoritas.filter(id => id !== String(idNoticia));
+            } else {
+                usuarioCorrente.id_noticias_favoritas = [...idsFavoritas, String(idNoticia)];
+            }
+            const response = await fetch(`http://localhost:3000/usuarios/${usuarioCorrente.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id_noticias_favoritas: usuarioCorrente.id_noticias_favoritas })
+            });
+
+            if (!response.ok) throw new Error("Erro ao atualizar favoritos");
+
+            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+            atualizaBtnFavorito(idNoticia);
+
+        } catch (error) {
+            console.error("Erro ao atualizar favoritos:", error);
+            alert("Não foi possível atualizar os favoritos.");
+        }
+    }
+
+    function atualizaBtnFavorito(idNoticia) {
+        const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+        const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : null;
+        const btn = document.getElementById("btn-add-fav");
+
+        if (!usuarioCorrente) {
+            btn.innerHTML = `<i class="fa-regular fa-bookmark me-1"></i>Adicionar aos favoritos`;
+            return;
+        }
+
+        const isAdminBtn = usuarioCorrente.admin === true;
+        const idsFavoritas = (usuarioCorrente.id_noticias_favoritas || []).map(String);
+        const jaFavorito = idsFavoritas.includes(String(idNoticia));
+
+        if (jaFavorito) {
+            btn.innerHTML = isAdminBtn
+                ? `<i class="fa-solid fa-bookmark"></i>`
+                : `<i class="fa-solid fa-bookmark me-1"></i>Remover dos favoritos`;
+            btn.classList.add("btn-favorito-ativo");
+        } else {
+            btn.innerHTML = isAdminBtn
+                ? `<i class="fa-regular fa-bookmark"></i>`
+                : `<i class="fa-regular fa-bookmark me-1"></i>Adicionar aos favoritos`;
+            btn.classList.remove("btn-favorito-ativo");
+        }
+    }
+
     async function init() {
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
-        document.getElementById("btn-edit").addEventListener("click", () => {
-            window.location.href = `cadastro_noticia.html?edit=true&id=${id}`;
-        });
-        document.getElementById("btn-delete").addEventListener("click", async () => {
-            const confirmar = confirm("Tem certeza que deseja excluir esta notícia?");
-            if (!confirmar) {
-                return;
-            }
-            try {
-                const response = await fetch(`http://localhost:3000/noticias/${id}`, {
-                    method: "DELETE"
-                });
-
-                if (!response.ok) {
-                    throw new Error("Erro ao excluir notícia");
-                }
-
-                alert("Notícia excluída com sucesso!");
-                window.location.href = "index.html";
-
-            } catch (error) {
-                console.error(error);
-                alert("Erro ao excluir notícia.");
-            }
-        });
 
         if (!id) {
             document.body.innerHTML = `
-            <div style="text-align: center; padding: 3rem;">
-                <h2>Ops! Nenhuma notícia foi selecionada.</h2>
-                <p>Parece que você acessou esta página sem selecionar uma notícia.</p>
-                <a href="index.html">← Voltar para a página inicial</a>
-            </div>
+                <div style="text-align: center; padding: 3rem;">
+                    <h2>Ops! Nenhuma notícia foi selecionada.</h2>
+                    <p>Parece que você acessou esta página sem selecionar uma notícia.</p>
+                    <a href="index.html">← Voltar para a página inicial</a>
+                </div>
             `;
             return;
         }
+
         const data = await fetchItem(id);
+
         if (!data.noticia || data.noticia.id === undefined) {
-        document.body.innerHTML = `
-            <div style="text-align: center; padding: 3rem;">
-                <h2>Notícia não encontrada.</h2>
-                <p>A notícia que você está procurando não existe ou foi removida.</p>
-                <a href="index.html">← Voltar para a página inicial</a>
-            </div>
-        `;
+            document.body.innerHTML = `
+                <div style="text-align: center; padding: 3rem;">
+                    <h2>Notícia não encontrada.</h2>
+                    <p>A notícia que você está procurando não existe ou foi removida.</p>
+                    <a href="index.html">← Voltar para a página inicial</a>
+                </div>
+            `;
             return;
         }
-        render(data.noticia, data.olimpiadas, data.tags1, data.tags2, data.tags3)
+
+        const usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+        const usuarioCorrente = usuarioCorrenteJSON ? JSON.parse(usuarioCorrenteJSON) : null;
+        const isAdmin = usuarioCorrente && usuarioCorrente.admin === true;
+
+        const btn_edit = document.getElementById("btn-edit");
+        const btn_delete = document.getElementById("btn-delete");
+
+        if (!isAdmin) {
+            btn_edit.classList.add("d-none");
+            btn_delete.classList.add("d-none");
+        } else {
+            btn_edit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+            btn_delete.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+
+            btn_edit.addEventListener("click", () => {
+                window.location.href = `cadastro_noticia.html?edit=true&id=${id}`;
+            });
+
+            btn_delete.addEventListener("click", async () => {
+                const confirmar = confirm("Tem certeza que deseja excluir esta notícia?");
+                if (!confirmar) return;
+
+                try {
+                    const usuarios = await fetch("http://localhost:3000/usuarios").then(res => res.json());
+                    const usuariosComFavorito = usuarios.filter(usuario =>
+                        (usuario.id_noticias_favoritas || []).map(String).includes(String(id))
+                    );
+
+                    await Promise.all(usuariosComFavorito.map(usuario => {
+                        const novosFavoritos = usuario.id_noticias_favoritas
+                            .map(String)
+                            .filter(favId => favId !== String(id));
+                        return fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
+                            method: "PATCH",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ id_noticias_favoritas: novosFavoritos })
+                        });
+                    }));
+
+                    if (usuarioCorrente) {
+                        const idsFavoritas = (usuarioCorrente.id_noticias_favoritas || []).map(String);
+                        if (idsFavoritas.includes(String(id))) {
+                            usuarioCorrente.id_noticias_favoritas = idsFavoritas.filter(favId => favId !== String(id));
+                            sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
+                        }
+                    }
+                    
+                    const response = await fetch(`http://localhost:3000/noticias/${id}`, {
+                        method: "DELETE"
+                    });
+
+                    if (!response.ok) throw new Error("Erro ao excluir notícia");
+
+                    alert("Notícia excluída com sucesso!");
+                    window.location.href = "index.html";
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Erro ao excluir notícia.");
+                }
+            });
+        }
+
+        render(data.noticia, data.olimpiadas, data.tags1, data.tags2, data.tags3);
+        atualizaBtnFavorito(id);
+        document.getElementById("btn-add-fav").addEventListener("click", () => {
+            toggleFavorito(id);
+        });
     }
     init();

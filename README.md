@@ -7,9 +7,29 @@
 
 - Proposta de projeto escolhida: A ideia central do Olympic Conscience é mostrar que as olimpíadas científicas vão além de medalhas: elas proporcionam experiências, interações valiosas e um leque enorme de oportunidades que muitos nem sequer imaginam.
 
-- Breve descrição sobre seu projeto: O Olympic Conscience reúne informações importantes sobre olimpíadas científicas em um hub de notícias, além de possibilitar o acesso a conteúdos direcionados para estudo e a interação entre os usuários. A plataforma também promove o compartilhamento de experiências e uma competitividade saudável por meio de um ranking baseado na participação ativa da comunidade.
+- Breve descrição sobre o projeto: O Olympic Conscience reúne informações importantes sobre olimpíadas científicas em um hub de notícias, além de possibilitar o acesso a conteúdos direcionados para estudo e a interação entre os usuários. A plataforma também promove o compartilhamento de experiências e uma competitividade saudável por meio de um ranking baseado na participação ativa da comunidade.
 
 Além disso, o sistema conta com um CRUD completo de notícias, permitindo o cadastro, visualização, edição e remoção de conteúdos, garantindo a atualização constante das informações disponibilizadas aos usuários. Como funcionalidade dinâmica, foi implementado um calendário interativo utilizando a biblioteca FullCalendar, que exibe eventos relacionados às olimpíadas científicas e é atualizado automaticamente a partir dos dados cadastrados na aplicação.
+
+
+## Tecnologias utilizadas
+
+- HTML5, CSS3 e JavaScript
+- Node.js
+- JSON Server (API REST simulada)
+- FullCalendar (calendário interativo)
+- Bootstrap (estilização e componentes responsivos)
+- Font Awesome (ícones)
+
+
+## Funcionalidades implementadas
+
+- Hub de notícias com **CRUD completo** (criar, visualizar, editar e excluir)
+- Pesquisa para filtragem dos itens da home-page por olimpíada e/ou ano
+- Calendário interativo (FullCalendar) com eventos gerados automaticamente a partir das olimpíadas cadastradas
+- Página de detalhes de cada olimpíada (etapas, premiação, público-alvo, site oficial, etc.)
+- Sistema de favoritos por usuário
+- Controle de acesso: apenas usuários administradores podem criar, editar ou excluir notícias
 
 
 ## Como rodar o projeto
@@ -49,6 +69,25 @@ O JSON Server irá:
 
 - Servir os arquivos estáticos da pasta `public/` (front-end)
 - Expor a API RESTful com base no arquivo `db/db.json` (back-end)
+
+
+### Como realizar o CRUD de notícias (acesso administrador)
+
+O CRUD de notícias só é visível e acessível para usuários administradores. Para testar, faça login com:
+
+- **Usuário:** bguedes
+- **Senha:** xyz789
+- Ou edite manualmente no db.json o atributo “admin” de algum usuário qualquer para true
+
+Com esse login, os botões "Nova Notícia", de edição (lápis) e de exclusão (lixeira) ficam disponíveis no menu de navegação, no calendário e na página de detalhes de cada notícia.
+
+
+## Estrutura de pastas
+
+```text
+public/        → front-end (HTML, CSS, JS e assets da aplicação)
+db/db.json     → "banco de dados" utilizado pelo JSON Server
+```
 
 
 ## Resumo da estrutura do db.json
@@ -197,19 +236,30 @@ Guarda as áreas do conhecimento associadas às notícias olimpíadas, e é util
 ```
 
 - **Usuários (ainda sem funcionalidade):**
-Guarda os dados dos usuários cadastrados na plataforma, incluindo nome, e-mail e lista de olimpíadas favoritas.
+Armazena os dados dos usuários cadastrados na plataforma, incluindo credenciais de acesso, nível, pontuação e lista de notícias favoritas.
+
+Cada usuário contém: Nome completo; Username; E-mail; Senha; Flag de administrador; Lista de IDs de notícias favoritas; Pontuação total; Pontuação da semana; Nível do usuário
+
+Usuários com `admin: true` têm acesso às funcionalidades de criação, edição e exclusão de notícias, além do botão "Nova Notícia" no calendário e no menu de navegação.
 
 ```json
 {
     "usuarios": [
         {
-            "id": 1,
-            "username": "jp_silva",
-            "nome": "João Pedro Silva",
-            "email": "joao@email.com",
-            "senha": "abc123",
-            "admin": false,
-            "id__olimp_favoritas": [2, 5, 7]
+            "id": "2",
+            "username": "bguedes",
+            "nome": "Bernardo Guedes da Silveira",
+            "email": "bernardo@email.com",
+            "senha": "xyz789",
+            "admin": true,
+            "id_noticias_favoritas": [
+                "3",
+                "1",
+                "8"
+            ],
+            "pontos": 1820,
+            "pontos_semana": 120,
+            "nivel": "Intermediário"
         }
     ]
 }

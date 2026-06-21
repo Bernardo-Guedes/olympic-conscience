@@ -91,6 +91,12 @@ function initLoginApp() {
     // PARTE 5 - CONFIGURA O FORMULÁRIO DE LOGIN
     document.getElementById('form-login').addEventListener('submit', function (event) {
         event.preventDefault();
+
+        const form = this
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+        }
  
         var login = document.getElementById('input-login-user').value;
         var senha = document.getElementById('input-login-password').value;
@@ -105,7 +111,13 @@ function initLoginApp() {
     // PARTE 6 - CONFIGURA O FORMULÁRIO DE CADASTRO
     document.getElementById('form-cadastro-usuario').addEventListener('submit', function (event) {
         event.preventDefault();
- 
+
+        const form = this;
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+        }
+        
         var nome = document.getElementById('input-name').value;
         var email = document.getElementById('input-email').value;
         var username = document.getElementById('input-user').value;
@@ -146,7 +158,7 @@ function loginUser(login, senha) {
             usuarioCorrente.email = usuario.email;
             usuarioCorrente.nome = usuario.nome;
             usuarioCorrente.admin = usuario.admin;
-            usuarioCorrente.id__olimp_favoritas = usuario.id__olimp_favoritas || [];
+            usuarioCorrente.id_noticias_favoritas = usuario.id_noticias_favoritas || [];
  
             // Salva os dados do usuário corrente no Session Storage
             sessionStorage.setItem('usuarioCorrente', JSON.stringify(usuarioCorrente));
@@ -179,7 +191,10 @@ function addUser(nome, username, senha, email) {
         "email": email,
         "senha": senha,
         "admin": false,
-        "id__olimp_favoritas": []
+        "id_noticias    _favoritas": [],
+        "pontos": 0,
+        "pontos_semana": 0,
+        "nivel": "Iniciante"
     };
  
     // Envia dados do novo usuário para ser inserido no JSON Server

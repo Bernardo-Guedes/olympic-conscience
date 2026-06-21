@@ -37,7 +37,8 @@
                 class="lista-menu d-flex flex-wrap flex-md-nowrap list-unstyled mb-0 py-md-2 px-lg-5 justify-content-center justify-content-lg-between">
                 <li><a href="index.html">Página Inicial</a></li>
                 <li><a href="cadastro_noticia.html?edit=false">Nova Notícia</a></li>
-                <li><a href="">Notícias salvas  </a></li>
+                <li><a href="calendar.html">Calendário</a></li>
+                <li><a href="favoritos.html">Notícias salvas  </a></li>
             </ul>
         </nav>
     </header>
@@ -55,45 +56,63 @@
                     </div>
                 </div>
                 <fieldset class="mt-4">
-                    <div id="campo-name" class="d-xl-flex pb-4 align-items-center">
-                        <label for="input-name" class="form-label fw-semibold ms-3"><i class="fa-solid fa-user" style="width: 30px; height: 30px; color: #650094;"></i>Nome completo <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control ms-lg-auto me-3" id="input-name" placeholder="Digite seu nome completo" required>
-                        <div class="invalid-feedback">Campo obrigatório.</div>
+                    <div id="campo-name" class="row pb-4 align-items-center">
+                        <label for="input-name" class="col-xl-3 col-form-label fw-semibold">
+                            <i class="fa-solid fa-user me-1" style="color: #650094;"></i>Nome completo <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-xl-9 col-12">
+                            <input type="text" class="form-control" id="input-name" placeholder="Digite seu nome completo" required>
+                            <div class="invalid-feedback">Campo obrigatório.</div>
+                        </div>
                     </div>
-                    <div id="campo-email" class="d-xl-flex pb-4 align-items-center">
-                        <label for="input-email" class="form-label fw-semibold ms-3"><i class="fa-solid fa-envelope" style="width: 30px; height: 30px; color: #650094;"></i>Email <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control ms-lg-auto me-3" id="input-email" placeholder="Digite seu email" required>
-                        <div class="invalid-feedback">Campo obrigatório.</div>
+
+                    <div id="campo-email" class="row pb-4 align-items-center">
+                        <label for="input-email" class="col-xl-3 col-form-label fw-semibold">
+                            <i class="fa-solid fa-envelope me-1" style="color: #650094;"></i>Email <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-xl-9 col-12">
+                            <input type="email" class="form-control" id="input-email" placeholder="Digite seu email" required>
+                            <div class="invalid-feedback">Campo obrigatório.</div>
+                        </div>
                     </div>
-                    <div id="campo-user" class="d-xl-flex pb-4 align-items-center">
-                        <label for="input-user" class="form-label fw-semibold ms-3"><i class="fa-solid fa-user" style="width: 30px; height: 30px; color: #650094;"></i>Nome de usuário <span class="text-danger">*</span></label>
-                        <div class="ms-lg-auto me-3">
+
+                    <div id="campo-user" class="row pb-4 align-items-center">
+                        <label for="input-user" class="col-xl-3 col-form-label fw-semibold">
+                            <i class="fa-solid fa-user me-1" style="color: #650094;"></i>Nome de usuário <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-xl-9 col-12">
                             <input type="text" class="form-control" id="input-user" placeholder="Digite seu nome de usuário" required>
-                            <small style="color: rgb(128, 128, 128);">Esse será seu identificador único no portal.</small>
+                            <div class="invalid-feedback">Campo obrigatório.</div>
+                            <small class="text-secondary">Esse será seu identificador único no portal.</small>
                         </div>
-                        <div class="invalid-feedback">Campo obrigatório.</div>
                     </div>
-                    <div id="campo-password" class="d-xl-flex pb-4 align-items-center">
-                        <label for="input-password" class="form-label fw-semibold ms-3"><i class="fa-solid fa-lock" style="width: 30px; height: 30px; color: #650094;"></i>Senha <span class="text-danger">*</span></label>
-                        <div class="ms-lg-auto me-2">
-                            <div class="d-flex align-items-center">
-                                <input type="text" class="form-control" id="input-password" placeholder="Digite sua senha" required>
-                                <i class="fa-solid fa-eye ms-2" id="icon-password" style="width: 10px; height: 10px; color: #650094;"></i>
+
+                    <div id="campo-password" class="row pb-4 align-items-center">
+                        <label for="input-password" class="col-xl-3 col-form-label fw-semibold">
+                            <i class="fa-solid fa-lock me-1" style="color: #650094;"></i>Senha <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-xl-9 col-12">
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control" id="input-password" placeholder="Digite sua senha" required>
+                                <span class="input-group-text"><i class="fa-solid fa-eye" id="icon-password" style="color: #650094; cursor: pointer;"></i></span>
+                                <div class="invalid-feedback">Campo obrigatório.</div>
                             </div>
-                            <small style="color: rgb(128, 128, 128);">A senha deve conter pelo menos 6 caracteres.</small>
+                            <small class="text-secondary">A senha deve conter pelo menos 6 caracteres.</small>
                         </div>
-                        <div class="invalid-feedback">Campo obrigatório.</div>
                     </div>
-                    <div id="campo-confirm-password" class="d-xl-flex pb-4 align-items-center">
-                        <label for="input-confirm-password" class="form-label fw-semibold ms-3"><i class="fa-solid fa-lock" style="width: 30px; height: 30px; color: #650094;"></i>Confirmar senha <span class="text-danger">*</span></label>
-                        <div class="ms-lg-auto me-2">
-                            <div class="d-flex align-items-center">
-                                <input type="text" class="form-control" id="input-confirm-password" placeholder="Confirme sua senha" required>
-                                <i class="fa-solid fa-eye ms-2" id="icon-confirm-password" style="width: 10px; height: 10px; color: #650094;"></i>
+
+                    <div id="campo-confirm-password" class="row pb-4 align-items-center">
+                        <label for="input-confirm-password" class="col-xl-3 col-form-label fw-semibold">
+                            <i class="fa-solid fa-lock me-1" style="color: #650094;"></i>Confirmar senha <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-xl-9 col-12">
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control" id="input-confirm-password" placeholder="Confirme sua senha" required>
+                                <span class="input-group-text"><i class="fa-solid fa-eye" id="icon-confirm-password" style="color: #650094; cursor: pointer;"></i></span>
+                                <div class="invalid-feedback">Campo obrigatório.</div>
                             </div>
-                            <small style="color: rgb(128, 128, 128);">Digite novamente a senha para confirmação.</small>
+                            <small class="text-secondary">Digite novamente a senha para confirmação.</small>
                         </div>
-                        <div class="invalid-feedback">Campo obrigatório.</div>
                     </div>
                 </fieldset>
                 <div class="d-md-flex justify-content-between align-items-center mt-lg-5 text-center">
@@ -124,12 +143,14 @@
                         <div class="invalid-feedback">Campo obrigatório.</div>
                     </div>
                     <div id="campo-login-password" class="pb-4">
-                        <label for="input-login-password" class="form-label fw-semibold ms-1"><i class="fa-solid fa-lock" style="width: 30px; height: 30px; color: #650094;"></i>Senha <span class="text-danger">*</span></label>
-                        <div class="d-flex align-items-center">
-                            <input type="text" class="form-control" id="input-login-password" placeholder="Digite sua senha" required>
-                            <i class="fa-solid fa-eye ms-2" id="icon-login-password" style="width: 10px; height: 10px; color: #650094;"></i>
+                        <label for="input-login-password" class="form-label fw-semibold ms-1">
+                            <i class="fa-solid fa-lock" style="width: 30px; height: 30px; color: #650094;"></i>Senha <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group has-validation">
+                            <input type="password" class="form-control" id="input-login-password" placeholder="Digite sua senha" required>
+                            <span class="input-group-text"><i class="fa-solid fa-eye" id="icon-login-password" style="color: #650094; cursor: pointer;"></i></span>
+                            <div class="invalid-feedback">Campo obrigatório.</div>
                         </div>
-                        <div class="invalid-feedback">Campo obrigatório.</div>
                     </div>
                 </fieldset>
                 <div class="d-flex flex-column align-items-center mt-5">
@@ -156,11 +177,10 @@
                     class="col-12 col-md-6 col-lg-4 d-none d-md-flex rodape-nav border-start-md border-top-sm d-flex flex-column align-items-center justify-content-center">
                     <h4>Navegação</h4>
                     <ul class="lista-nav-rodape list-unstyled">
-                        <li><a href="">Página Inicial</a></li>
-                        <li><a href="">Nova notícia</a></li>
-                        <li><a href="">Calendário</a></li>
-                        <li><a href="">Experiências</a></li>
-                        <li><a href="">Ranking</a></li>
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="cadastro_noticia.html?edit=false">Nova Notícia</a></li>
+                        <li><a href="calendar.html">Calendário</a></li>
+                        <li><a href="favoritos.html">Notícias salvas</a></li>
                     </ul>
                 </div>
 

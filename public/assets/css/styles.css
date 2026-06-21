@@ -316,6 +316,9 @@ input.item-formulario[type="submit"]:hover {
 .fc .fc-day-today {
     background-color: transparent !important;
 }
+.fc-event {
+    cursor: pointer !important;
+}
 .fc-event-title {
     white-space: normal !important;
     overflow: visible !important;
@@ -375,6 +378,23 @@ input.item-formulario[type="submit"]:hover {
    margin: 0 auto;
 }
 
+/*--------------------------------------------------------CSS da Página de Favoritos---------------------------------------------------------*/
+#favoritos {
+    background-color: #f0f2f6;
+    padding-top: 180px;
+}
+
+#lista-noticias-fav{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 34px;
+}
+#lista-noticias-fav h2 {
+    padding: 0;
+    margin: 10px 0 10px 22px;
+    font-size: 130%;
+}
 
 /*--------------------------------------------------------CSS da Página de Autenticação---------------------------------------------------------*/
 
@@ -527,6 +547,9 @@ input.item-formulario[type="submit"]:hover {
     #homepage{
         padding-top: 180px !important;
     }
+    #favoritos {
+        padding-top: 180px !important;
+    }
 
     #page-calendar{
         padding-top: 180px !important;
@@ -537,11 +560,11 @@ input.item-formulario[type="submit"]:hover {
 @media (max-width:767px){
     
     #pagina-cadastro{
-        padding-top: 0;
+        padding-top: 0px;
     }
 
     #pagina-login{
-        padding-top: 0;
+        padding-top: 0px;
     }
 
     #details-page{
@@ -549,6 +572,10 @@ input.item-formulario[type="submit"]:hover {
     }
 
     #homepage{
+        padding-top: 0px;
+    }
+
+    #favoritos {
         padding-top: 0px;
     }
 
