@@ -41,7 +41,7 @@ Além disso, o sistema conta com um CRUD completo de notícias, permitindo o cad
 
 ### Instalação
 
-Na pasta raiz do projeto:
+Na pasta raiz do projeto `\olympic-conscience`:
 
 ```bash
 npm install
